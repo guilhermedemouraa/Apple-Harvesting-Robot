@@ -8,12 +8,9 @@ Scaled harvesting robot using Parallax ActivityBot 360o to simulate apple pickin
 The challenge consisted in creating robot to go over a simulated apple orchard, locate and classify apples (green, ripe, and overripe), leave green apples behind, harvest ripe apples, remove overripe apples, and provide a summarized report of the operation.
 
 ![Orchard](https://user-images.githubusercontent.com/39603677/113948821-a9041a00-97c2-11eb-878f-3bb8de0f2ebc.png)
-
-Fig. 1. Robot-compatible apple orchard, Yakama Valley, WA. Source: 2018 ASABE Student Robotics Challenge
-
 ![class field](https://user-images.githubusercontent.com/39603677/113948820-a86b8380-97c2-11eb-95fd-0fb9d441b27a.png)
 
-Fig. 2. Simulated apple orchard
+Fig. 1. (a) Robot-compatible apple orchard, Yakama Valley, WA. Source: 2018 ASABE Student Robotics Challenge. (b) Simulated apple orchard
 
 •	The key steps for the success of this project included developing code for remote operation through a smartphone, path following, PID control, and data collection, classification (logistic regression), and analysis.
 
@@ -23,11 +20,11 @@ Fig. 2. Simulated apple orchard
 
 ![Robot design](https://user-images.githubusercontent.com/39603677/113948823-a99cb080-97c2-11eb-8ce8-cb6cc00f340d.JPG)
 
-Fig. 3. Mechanic arm for apple picking
+Fig. 2. Mechanic arm for apple picking
 
 • The last part of the project consisted in creating a summary report of the apple harvesting operation, which was presented to the user in a local webpage, developed in HTLM.
 
 ![Picture1](https://user-images.githubusercontent.com/39603677/113950191-99d29b80-97c5-11eb-9d65-b4089882aa7c.png)
 
-Fig. 4 Report summary
+Fig. 3 Report summary
 
