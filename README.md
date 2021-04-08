@@ -12,10 +12,12 @@ The challenge consisted in creating robot to go over a simulated apple orchard, 
 
 Fig. 1. (a) Robot-compatible apple orchard, Yakama Valley, WA. Source: 2018 ASABE Student Robotics Challenge. (b) Simulated apple orchard
 
-•	The key steps for the success of this project included developing code for remote operation through a smartphone, path following, PID control, and data collection, classification (logistic regression), and analysis.
+•	The key steps for the success of this project included developing code for remote operation through a smartphone, navigation/path following, and data collection, classification (logistic regression), and analysis.
 
-• Path following was assisted by a laser range finder, a gyroscope, and ultrasonic sensors. In addition, the robot was provided with PID control.
+• Navigation/path following was assisted by a laser range finder, a gyroscope,  ultrasonic sensors, and PID control.
+
 • The identification of the "apples" (colored ping-pong balls) was assisted by a dichromatic optical reflectance sensor. Data classification was performed through logistic regression.
+
 • Apple picking was performed through a mechanic arm controlled by a servo motor.
 
 ![Robot design](https://user-images.githubusercontent.com/39603677/113948823-a99cb080-97c2-11eb-8ce8-cb6cc00f340d.JPG)
