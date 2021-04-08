@@ -24,7 +24,7 @@ Fig. 1. (a) Robot-compatible apple orchard, Yakama Valley, WA. Source: 2018 ASAB
 
 Fig. 2. Mechanic arm for apple picking. Source: Slaughter, D.C., EBS289K: Robotics, smart machines, and IoT. 2018.
 
-• The last part of the project consisted in creating a summary report of the apple harvesting operation, which was presented to the user in a local webpage, developed in HTLM.
+• The last part of the project consisted in creating a summary report of the apple harvesting operation, which was presented to the user in a local webpage, developed using HTLM, CSS, and JavaScript.
 
 ![Picture1](https://user-images.githubusercontent.com/39603677/113950191-99d29b80-97c5-11eb-9d65-b4089882aa7c.png)
 
