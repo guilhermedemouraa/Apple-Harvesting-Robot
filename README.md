@@ -1,6 +1,6 @@
 # Apple-Harvesting-Robot
 
-https://user-images.githubusercontent.com/39603677/113949835-da7de500-97c4-11eb-9bac-9a76c6913de9.mp4
+![final](https://user-images.githubusercontent.com/39603677/113951001-80325380-97c7-11eb-9470-c83c07979b81.gif)
 
 
 ## Project Description
