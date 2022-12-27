@@ -1,0 +1,454 @@
+
+<!DOCTYPE HTML>
+
+<html>
+
+  <head>
+
+
+
+  	<link href="https://fonts.googleapis.com/css?family=Indie+Flower|Josefin+Sans:700i|Mali" rel="stylesheet">
+
+
+
+    <style>
+
+    
+
+	    body{
+
+	    	background: url(https://cdn.learfield.com/wp-content/uploads/2017/08/UC-Davis-Football.jpg);
+
+	    	background-size: cover;
+
+	    	background-repeat: no-repeat;
+
+	    }
+
+
+
+	      button{
+
+	      	background: url(https://pbs.twimg.com/profile_images/845137106120847361/ELLZvaFj_400x400.jpg);
+
+	        background-size: cover;
+
+	        border:1px solid black;
+
+	        display:inline-block;
+
+	        color: #ff6666;
+
+	        font-size: 100px;
+
+	        margin:20px;
+
+	        width:150px;
+
+	        height:150px;
+
+	        font-family: 'Indie Flower', cursive;
+
+	        font-weight: bold;
+
+	        cursor:pointer;
+
+	        padding-top:8px
+
+	      }
+
+	      button:hover{color:black;}
+
+
+
+
+
+	      h1{
+
+	      	font-family: 'Mali', cursive;
+
+	      	font-size: 50px;
+
+	      	color: #0066ff;
+
+	      	text-align: center; 
+
+	      }
+
+
+
+	      h2{
+
+	      	font-family: 'Josefin Sans', sans-serif;
+
+	      	font-size: 35px;
+
+	      	color: #6699ff;
+
+	      	text-align: center; 
+
+	      }
+
+	     h3{
+
+	      	font-family: 'Josefin Sans', sans-serif;
+
+	      	font-size: 30px;
+
+	      	color: #6699ff;
+
+	      	text-align: center; 
+
+	      }
+
+        canvas{
+          background: white;
+        }
+
+
+
+    </style>
+
+
+
+    <h1>EBS 289K IoT</h1>
+
+    <h2>Gui & Kaiyan</h2>
+
+
+
+  </head>
+
+
+
+  <body>
+
+
+
+    <div align="center">
+
+      <br>
+
+      <button onclick="navBtns('F');">&#8679</button>
+
+      <br>
+
+      <button onclick="navBtns('L');">&#8678</button>
+
+      <button onclick="navBtns('S');">&#9671</button>
+
+      <button onclick="navBtns('R');">&#8680</button>
+
+      <br>
+
+      <button onclick="navBtns('B');">&#8681</button>
+
+      <br>
+
+      <button onclick="navBtns('1');">1</button>
+
+      <br>
+
+      <button onclick="navBtns('E');">E</button>
+
+    </div>
+
+
+
+    <h2 style="color:blue">AUTOMATED Value Retrieval</h2>
+
+    <h3 style="font-size: 25px">Number from Robot (1 s update rate)</h3> 
+
+
+
+    <h3><p id="value">Waiting...</p>
+      <canvas id="myCanvas" width="1200" height="2400" style="border:1px solid #d3d3d3;"></canvas>
+    </h3>
+
+
+
+
+
+   <script>
+
+
+
+    function navBtns(direction) 
+
+    {
+
+      httpPost("/bot", "go=" + direction);
+
+    }
+
+    function httpPost(path, param)
+
+    {
+
+      var req = new XMLHttpRequest();
+
+      req.open("POST", path, true);
+
+      req.setRequestHeader("Content-type",
+
+      "application/x-www-form-urlencoded");
+
+      req.send(param);
+
+    }
+
+
+
+    var autoTimer = setInterval(getFromMcu, 200);
+
+
+
+    function useMcuReply(response)
+
+      {
+
+        var val = document.getElementById("value");
+
+	   var loc = dist.split(",",2);
+
+        wp = loc[0];
+
+        dist = loc[1];
+
+        val.innerHTML = "wpIndex = " + wp + " Distance = " + dist;
+
+      }
+
+
+
+      function getFromMcu()
+
+      {
+
+        httpGet("/tpfm", useMcuReply);
+
+	   httpGet("/tpfm",draw);
+
+      }
+
+
+
+      function httpGet(path, callback)
+
+      {
+
+        var req = new XMLHttpRequest();
+
+        req.open("GET", path, true); 
+
+        req.onreadystatechange = function() 
+
+        { 
+
+          if (req.readyState == 4)
+
+            if(req.status == 200)
+
+       	callback(req.responseText);
+
+            else
+
+              callback("Waiting...");
+
+        }
+
+        req.send(null);
+
+      }
+
+
+
+function draw(dist)
+
+{
+
+var where = dist.split(",",2);
+
+wpIndex = where[0];
+
+distance = where[1];
+
+
+    var x, y;
+
+    if (wpIndex == 1) {
+      x = 165;
+      y = 2400-(2400-distance);
+    } else {
+      x = 1035;
+      y = 900-distance;
+    }
+    
+    var c = document.getElementById("myCanvas");
+
+    var ctx = c.getContext("2d");
+
+    ctx.beginPath();
+
+    ctx.moveTo(0, 2400);
+
+    ctx.lineTo(0, 0);
+
+    ctx.lineTo(1200, 0);
+
+    ctx.lineTo(1200, 2400);
+
+    ctx.lineTo(0, 2400);
+
+    ctx.moveTo(600, 1800);
+
+    ctx.lineTo(600, 600);
+
+    //---1---
+
+        ctx.moveTo(0, 1700);
+
+    ctx.lineTo(150, 1700);
+
+        ctx.moveTo(0, 1575);
+
+    ctx.lineTo(150, 1575);
+
+        ctx.moveTo(0, 1450);
+
+    ctx.lineTo(150, 1450);
+
+        ctx.moveTo(0, 1325);
+
+    ctx.lineTo(150, 1325);
+
+        ctx.moveTo(0, 1200);
+
+    ctx.lineTo(150, 1200);
+
+        ctx.moveTo(0, 1075);
+
+    ctx.lineTo(150, 1075);
+
+        ctx.moveTo(0, 950);
+
+    ctx.lineTo(150, 950);
+
+            ctx.moveTo(0, 825);
+
+    ctx.lineTo(150, 825);
+
+        ctx.moveTo(0, 700);
+
+    ctx.lineTo(150, 700);
+
+
+//----2---
+
+        ctx.moveTo(450, 1700);
+
+    ctx.lineTo(750, 1700);
+
+        ctx.moveTo(450, 1575);
+
+    ctx.lineTo(750, 1575);
+
+        ctx.moveTo(450, 1450);
+
+    ctx.lineTo(750, 1450);
+
+        ctx.moveTo(450, 1325);
+
+    ctx.lineTo(750, 1325);
+
+        ctx.moveTo(450, 1200);
+
+    ctx.lineTo(750, 1200);
+
+        ctx.moveTo(450, 1075);
+
+    ctx.lineTo(750, 1075);
+
+        ctx.moveTo(450, 950);
+
+    ctx.lineTo(750, 950);
+
+            ctx.moveTo(450, 825);
+
+    ctx.lineTo(750, 825);
+
+        ctx.moveTo(450, 700);
+
+    ctx.lineTo(750, 700);
+
+//---3---
+
+        ctx.moveTo(1200, 1700);
+
+    ctx.lineTo(1050, 1700);
+
+        ctx.moveTo(1200, 1575);
+
+    ctx.lineTo(1050, 1575);
+
+        ctx.moveTo(1200, 1450);
+
+    ctx.lineTo(1050, 1450);
+
+        ctx.moveTo(1200, 1325);
+
+    ctx.lineTo(1050, 1325);
+
+        ctx.moveTo(1200, 1200);
+
+    ctx.lineTo(1050, 1200);
+
+        ctx.moveTo(1200, 1075);
+
+    ctx.lineTo(1050, 1075);
+
+        ctx.moveTo(1200, 950);
+
+    ctx.lineTo(1050, 950);
+
+            ctx.moveTo(1200, 825);
+
+    ctx.lineTo(1050, 825);
+
+        ctx.moveTo(1200, 700);
+
+    ctx.lineTo(1050, 700);
+
+// ---------------------
+    ctx.moveTo(x, y);
+
+    ctx.arc(x, y, 10, 0, Math.PI * 2, false);
+
+    ctx.font = "30px Arial";
+    ctx.fillText("Zone 1",30,1475);
+    ctx.fillText("Zone 2",30,1100);
+    ctx.fillText("Zone 3",30,725);
+    ctx.fillText("Zone 6",1080,1475);
+    ctx.fillText("Zone 5",1080,1100);
+    ctx.fillText("Zone 4",1080,725);
+
+    ctx.lineWidth = 2;
+    ctx.strokeStyle = "red";
+    ctx.stroke();
+
+    var ctr = c.getContext("2d");
+    ctr.beginPath();
+    ctr.moveTo(x, y);
+    ctr.arc(x, y, 10, 0, Math.PI * 2, false);
+    ctr.strokeStyle = "red";
+    ctr.stroke();
+    ctr.fillStyle = 'red';
+    ctr.fill();
+
+	}
+
+  </script>
+
+ </body>
+
+</html>
