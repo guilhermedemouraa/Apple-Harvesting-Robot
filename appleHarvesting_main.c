@@ -9,7 +9,7 @@
  * Ping reading outlier control
  * Missing wall section detection or mitigation
  * detection of obstacles other than walls
- * use of a full PID control algorithm.
+ * use of a full PID control algorithm (it does however applies proportional control).
  * 
  * Test the PING))) sensor before using it to navigate with the ActivityBot.
  *
