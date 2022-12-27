@@ -1,10 +1,8 @@
-
 <!DOCTYPE HTML>
 
 <html>
 
   <head>
-
 
 
   	<link href="https://fonts.googleapis.com/css?family=Indie+Flower|Josefin+Sans:700i|Mali" rel="stylesheet">
@@ -14,7 +12,6 @@
     <style>
 
     
-
 	    body{
 
 	    	background: url(https://cdn.learfield.com/wp-content/uploads/2017/08/UC-Davis-Football.jpg);
@@ -24,7 +21,6 @@
 	    	background-repeat: no-repeat;
 
 	    }
-
 
 
 	      button{
@@ -58,9 +54,6 @@
 	      }
 
 	      button:hover{color:black;}
-
-
-
 
 
 	      h1{
@@ -105,81 +98,29 @@
           background: white;
         }
 
-
-
     </style>
-
-
 
     <h1>EBS 289K IoT</h1>
 
     <h2>Gui & Kaiyan</h2>
 
-
-
   </head>
-
-
 
   <body>
 
-
-
-    <div align="center">
-
-      <br>
-
-      <button onclick="navBtns('F');">&#8679</button>
-
-      <br>
-
-      <button onclick="navBtns('L');">&#8678</button>
-
-      <button onclick="navBtns('S');">&#9671</button>
-
-      <button onclick="navBtns('R');">&#8680</button>
-
-      <br>
-
-      <button onclick="navBtns('B');">&#8681</button>
-
-      <br>
-
-      <button onclick="navBtns('1');">1</button>
-
-      <br>
-
-      <button onclick="navBtns('E');">E</button>
-
     </div>
 
+    <h2 style="color:red">Apple Picking Final Project</h2>
 
-
-    <h2 style="color:blue">AUTOMATED Value Retrieval</h2>
-
-    <h3 style="font-size: 25px">Number from Robot (1 s update rate)</h3> 
+    <h3 style="font-size: 25px"></h3> 
 
 
 
-    <h3><p id="value">Waiting...</p>
-      <canvas id="myCanvas" width="1200" height="2400" style="border:1px solid #d3d3d3;"></canvas>
+    <h2><p id="value">Turn = 1 Distance = 750 mm</p>
+      <canvas id="myCanvas" width="1500" height="1000" style="border:1px solid #d3d3d3;"></canvas>
     </h3>
 
-
-
-
-
    <script>
-
-
-
-    function navBtns(direction) 
-
-    {
-
-      httpPost("/bot", "go=" + direction);
-
-    }
 
     function httpPost(path, param)
 
@@ -197,12 +138,7 @@
 
     }
 
-
-
     var autoTimer = setInterval(getFromMcu, 200);
-
-
-
     function useMcuReply(response)
 
       {
@@ -273,14 +209,17 @@ wpIndex = where[0];
 
 distance = where[1];
 
+wpIndex = 1;
+distance = 750;
+y0 = 45;
 
     var x, y;
 
     if (wpIndex == 1) {
-      x = 165;
+      x = 198+25;
       y = 2400-(2400-distance);
     } else {
-      x = 1035;
+      x = 1300-25;
       y = 900-distance;
     }
     
@@ -290,160 +229,129 @@ distance = where[1];
 
     ctx.beginPath();
 
-    ctx.moveTo(0, 2400);
-
-    ctx.lineTo(0, 0);
-
-    ctx.lineTo(1200, 0);
-
-    ctx.lineTo(1200, 2400);
-
-    ctx.lineTo(0, 2400);
-
-    ctx.moveTo(600, 1800);
-
-    ctx.lineTo(600, 600);
+    ctx.moveTo(48, 900);
+    ctx.lineTo(48, 40);
+    ctx.lineTo(1450, 40);
+    ctx.lineTo(1450, 900);
+    ctx.lineTo(48, 900);
+    ctx.moveTo(48, 900);
+    ctx.moveTo(701, 900);
+    ctx.lineTo(701, 40);
 
     //---1---
 
-        ctx.moveTo(0, 1700);
-
-    ctx.lineTo(150, 1700);
-
-        ctx.moveTo(0, 1575);
-
-    ctx.lineTo(150, 1575);
-
-        ctx.moveTo(0, 1450);
-
-    ctx.lineTo(150, 1450);
-
-        ctx.moveTo(0, 1325);
-
-    ctx.lineTo(150, 1325);
-
-        ctx.moveTo(0, 1200);
-
-    ctx.lineTo(150, 1200);
-
-        ctx.moveTo(0, 1075);
-
-    ctx.lineTo(150, 1075);
-
-        ctx.moveTo(0, 950);
-
-    ctx.lineTo(150, 950);
-
-            ctx.moveTo(0, 825);
-
-    ctx.lineTo(150, 825);
-
-        ctx.moveTo(0, 700);
-
-    ctx.lineTo(150, 700);
-
+    ctx.moveTo(48, 814);
+    ctx.lineTo(198, 814);
+    ctx.moveTo(48, 728);
+    ctx.lineTo(198, 728);
+    ctx.moveTo(48, 642);
+    ctx.lineTo(198, 642);
+    ctx.moveTo(48, 556);
+    ctx.lineTo(198, 556);
+    ctx.moveTo(48, 470);
+    ctx.lineTo(198, 470);
+    ctx.moveTo(48, 384);
+    ctx.lineTo(198, 384);
+    ctx.moveTo(48, 298);
+    ctx.lineTo(198, 298);
+    ctx.moveTo(48, 212);
+    ctx.lineTo(198, 212);
+    ctx.moveTo(48, 126);
+    ctx.lineTo(198, 126);
 
 //----2---
 
-        ctx.moveTo(450, 1700);
-
-    ctx.lineTo(750, 1700);
-
-        ctx.moveTo(450, 1575);
-
-    ctx.lineTo(750, 1575);
-
-        ctx.moveTo(450, 1450);
-
-    ctx.lineTo(750, 1450);
-
-        ctx.moveTo(450, 1325);
-
-    ctx.lineTo(750, 1325);
-
-        ctx.moveTo(450, 1200);
-
-    ctx.lineTo(750, 1200);
-
-        ctx.moveTo(450, 1075);
-
-    ctx.lineTo(750, 1075);
-
-        ctx.moveTo(450, 950);
-
-    ctx.lineTo(750, 950);
-
-            ctx.moveTo(450, 825);
-
-    ctx.lineTo(750, 825);
-
-        ctx.moveTo(450, 700);
-
-    ctx.lineTo(750, 700);
+    ctx.moveTo(851, 814);
+    ctx.lineTo(551, 814);
+    ctx.moveTo(851, 728);
+    ctx.lineTo(551, 728);
+    ctx.moveTo(851, 642);
+    ctx.lineTo(551, 642);
+    ctx.moveTo(851, 556);
+    ctx.lineTo(551, 556);
+    ctx.moveTo(851, 470);
+    ctx.lineTo(551, 470);
+    ctx.moveTo(851, 384);
+    ctx.lineTo(551, 384);
+    ctx.moveTo(851, 298);
+    ctx.lineTo(551, 298);
+    ctx.moveTo(851, 212);
+    ctx.lineTo(551, 212);
+    ctx.moveTo(851, 126);
+    ctx.lineTo(551, 126);
 
 //---3---
 
-        ctx.moveTo(1200, 1700);
-
-    ctx.lineTo(1050, 1700);
-
-        ctx.moveTo(1200, 1575);
-
-    ctx.lineTo(1050, 1575);
-
-        ctx.moveTo(1200, 1450);
-
-    ctx.lineTo(1050, 1450);
-
-        ctx.moveTo(1200, 1325);
-
-    ctx.lineTo(1050, 1325);
-
-        ctx.moveTo(1200, 1200);
-
-    ctx.lineTo(1050, 1200);
-
-        ctx.moveTo(1200, 1075);
-
-    ctx.lineTo(1050, 1075);
-
-        ctx.moveTo(1200, 950);
-
-    ctx.lineTo(1050, 950);
-
-            ctx.moveTo(1200, 825);
-
-    ctx.lineTo(1050, 825);
-
-        ctx.moveTo(1200, 700);
-
-    ctx.lineTo(1050, 700);
+    ctx.moveTo(1450, 814);
+    ctx.lineTo(1300, 814);
+    ctx.moveTo(1450, 728);
+    ctx.lineTo(1300, 728);
+    ctx.moveTo(1450, 642);
+    ctx.lineTo(1300, 642);
+    ctx.moveTo(1450, 556);
+    ctx.lineTo(1300, 556);
+    ctx.moveTo(1450, 470);
+    ctx.lineTo(1300, 470);
+    ctx.moveTo(1450, 384);
+    ctx.lineTo(1300, 384);
+    ctx.moveTo(1450, 298);
+    ctx.lineTo(1300, 298);
+    ctx.moveTo(1450, 212);
+    ctx.lineTo(1300, 212);
+    ctx.moveTo(1450, 126);
+    ctx.lineTo(1300, 126);
 
 // ---------------------
-    ctx.moveTo(x, y);
-
-    ctx.arc(x, y, 10, 0, Math.PI * 2, false);
-
-    ctx.font = "30px Arial";
-    ctx.fillText("Zone 1",30,1475);
-    ctx.fillText("Zone 2",30,1100);
-    ctx.fillText("Zone 3",30,725);
-    ctx.fillText("Zone 6",1080,1475);
-    ctx.fillText("Zone 5",1080,1100);
-    ctx.fillText("Zone 4",1080,725);
-
-    ctx.lineWidth = 2;
+  	ctx.lineWidth=6;
     ctx.strokeStyle = "red";
     ctx.stroke();
-
+    
+   
     var ctr = c.getContext("2d");
     ctr.beginPath();
     ctr.moveTo(x, y);
     ctr.arc(x, y, 10, 0, Math.PI * 2, false);
-    ctr.strokeStyle = "red";
+    ctr.strokeStyle = "blue";
     ctr.stroke();
-    ctr.fillStyle = 'red';
+    ctr.fillStyle = 'blue';
     ctr.fill();
+    
+    var cty = c.getContext("2d");
+    
+    cty.font = "30px Arial";
+	cty.fillText("Zone 1",60,610);
+    cty.fillText("Zone 2",60,360);
+    cty.fillText("Zone 3",60,100);
+    cty.font = "20px Arial";
+	cty.fillText("Green = 0",170,590);
+    cty.fillText("Red = 2",170,610);
+    cty.fillText("Pink = 1",170,630);
+    cty.fillText("Green = 2",170,330);
+    cty.fillText("Red = 1",170,350);
+    cty.fillText("Pink = 0",170,370);
+    cty.fillText("Green = 1",170,70);
+    cty.fillText("Red = 0",170,90);
+    cty.fillText("Pink = 2",170,110);
+    //------------
+    cty.font = "30px Arial";
+	cty.fillText("Zone 6",1340,610);
+    cty.fillText("Zone 5",1340,360);
+    cty.fillText("Zone 4",1340,100);
+    cty.font = "20px Arial";
+	cty.fillText("Green = ?",1230,590);
+    cty.fillText("Red = ?",1230,610);
+    cty.fillText("Pink = ?",1230,630);
+    cty.fillText("Green = ?",1230,330);
+    cty.fillText("Red = ?",1230,350);
+    cty.fillText("Pink = ?",1230,370);
+    cty.fillText("Green = ?",1230,70);
+    cty.fillText("Red = ?",1230,90);
+    cty.fillText("Pink = ?",1230,110);
+    
+    cty.strokeStyle = "green";
+    cty.stroke();
+    cty.fillStyle = 'green';
+    cty.fill();
 
 	}
 
